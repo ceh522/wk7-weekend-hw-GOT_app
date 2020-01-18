@@ -1,28 +1,64 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+      <nav>
+      <h1>Game of Thrones</h1>
+    </nav>
+    <house-list :houses="houses" />
+    <house-detail />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import HouseList from './components/HouseList.vue'
+import HouseDetail from './components/HouseDetail.vue'
+
 
 export default {
   name: 'app',
+  data(){
+    return {
+      houses: []
+    }
+  },
   components: {
-    HelloWorld
+    "house-list": HouseList,
+    "house-detail": HouseDetail
+  },
+
+  mounted(){
+    fetch('https://anapioficeandfire.com/api/houses/')
+    .then(data => data.json())
+    .then(houses=> this.houses= houses)
   }
 }
 </script>
 
-<style>
+<style lang="css" scoped>
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-image: url("./assets/ice_and_fire.jpg");
+  background-size:cover, 50px;
+  background-repeat: no-repeat;
 }
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  color: #333;
+}
+
+nav {
+  box-sizing: border-box;
+  background-color: white;
+  overflow: auto;
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
 </style>
