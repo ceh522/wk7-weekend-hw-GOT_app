@@ -41,7 +41,10 @@ export default {
   background-image: url("./assets/ice_and_fire.jpg");
   background-size:cover, 50px;
   background-repeat: no-repeat;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
+
 
 h1 {
   text-align: center;

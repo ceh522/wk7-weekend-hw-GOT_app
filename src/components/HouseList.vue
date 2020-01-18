@@ -32,8 +32,9 @@ export default {
   }
   select, input[type="text"]{
       font-size: 25px;
+      border: 2px, blue;
     }
     select {
-      margin-left: 20px;
+      margin-left: 350px;
     }
     </style>
