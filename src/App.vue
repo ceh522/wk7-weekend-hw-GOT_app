@@ -23,7 +23,7 @@ export default {
   },
   components: {
     "house-list": HouseList,
-    "house-detail": HouseDetail
+    "house-detail": HouseDetail,
   },
 
   mounted(){
